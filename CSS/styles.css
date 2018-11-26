@@ -1,0 +1,485 @@
+/**
+
+Google Material Design-style box shadows found here:
+
+https://codepen.io/sdthornton/pen/wBZdXq
+
+Based on a Medium post by Florian Kutschera:
+
+https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d
+
+Developed from the 2014 Google Material Design specification:
+
+http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
+
+**/
+
+/** No-attribution-required vector social icons are from https://iconsmonstr **/
+
+:root {
+    --accent-dark: #2f3640;
+    --accent-light: #fff;
+    --bg-grey: #dcdde1;
+    --bg-purple: #8c7ae6;
+    --header-body-bg-color: #fff;
+    --header-color: rgba(0, 0, 0, 0.87);
+    --body-color: rgba(0, 0, 0, 0.67);
+    --body-family: 'Quattrocento', Serif;
+    --header-family: 'Oswald', Sans-Serif;
+    --shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --shadow-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow-hover: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    --in-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    font-size: 22px;
+    margin: 25px 45px;
+    height: 100%;
+    background: rgb(0, 151, 230);
+    background: linear-gradient(45deg, rgba(0, 151, 230, 1) 0%, rgba(140, 122, 230, 1) 62%, rgba(39, 60, 117, 1) 96%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    line-height: 1.1rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*** Navigation ***/
+
+.top-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0.3rem;
+    list-style: none;
+    text-align: center;
+}
+
+.logo {
+    background: #000;
+    border-radius: 45px;
+    padding: 8px;
+    box-shadow: var(--shadow);
+}
+
+.top-nav a {
+    font-family: var(--header-family);
+    color: var(--bg-grey);
+    background-color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 1.3rem;
+    font-size: 1.8rem;
+    border-radius: 45px;
+    box-shadow: var(--shadow);
+    transition: var(--shadow-transition);
+}
+
+.top-nav a:hover {
+    color: var(--accent-light);
+    box-shadow: var(--shadow-hover);
+    background-color: var(--accent-dark);
+}
+
+/*** Section Title ***/
+
+.section-title {
+    font-family: var(--header-family);
+    color: #000;
+    background: url(../img/textured-paper-1920x1080.png);
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    border-radius: 45px;
+    max-width: 370px;
+    box-shadow: var(--shadow);
+}
+
+/*** Hero Section ***/
+
+.hero-section {
+    display: grid;
+    grid-gap: 20px;
+    background: url(../img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    align-items: center;
+    grid-template-areas:
+      'hero-box hero-box'
+      'hero-box hero-box';
+}
+
+.hero-box {
+    grid-area: hero-box;
+    min-height: 400px;
+    color: var(--accent-light);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-items: center;
+}
+
+.hero-header {
+    font-family: var(--header-family);
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+.hero-body {
+    font-family: var(--body-family);
+    color: var(--accent-light);
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+}
+
+.hero-body-sm {
+    font-family: var(--body-family);
+    color: var(--bg-grey);
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+}
+
+/*** social icon section ***/
+
+.social-icons-section {
+    background-color: var(--bg-grey);
+    border-radius: 10px;
+    background: url(../img/textured-paper-1920x1080.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow);
+    transition: var(--shadow-transition);
+}
+
+.social-icons-section:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.social-icons ul {
+    display: grid;
+    grid-gap: 20px;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0.3rem;
+    list-style: none;
+    text-align: center;
+    border-radius: 45px;
+}
+
+.social-icons li {
+    list-style: none;
+}
+
+.social-icons img {
+    max-width: 125px;
+}
+
+.svg {
+    width: 100%;
+    height: auto;
+}
+
+.font-header {
+    font-family: var(--header-family);
+    color: var(--header-color);
+    font-size: 2rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+/*** Training Section ***/
+
+.training-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+
+/* cards for training, projects, and porfolio sections **/
+
+.card {
+    color: var(--accent-light);
+    background: url(../img/textured-paper-1920x1080.png);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--shadow-transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.card-head {
+    font-family: var(--header-family);
+    color: var(--bg-grey);
+    background-color: #000;
+    margin: 1.3rem;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0.6rem;
+    font-size: 1.8rem;
+    border-radius: 45px;
+    box-shadow: var(--in-shadow);
+    transition: var(--shadow-transition);
+}
+
+.card-head:hover {
+    color: var(--accent-light);
+    box-shadow: var(--shadow-hover);
+    background-color: var(--accent-dark);
+}
+
+.card-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.3rem;
+}
+
+.card-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 7px;
+    box-shadow: var(--in-shadw);
+}
+
+
+.card-body {
+    font-family: var(--body-family);
+    color: var(--body-color);
+    font-weight: bold;
+    line-height: 1.6rem;
+    padding: 1.6rem;
+}
+
+/*** Projects Section ***/
+
+.projects-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+/*** Portfolio Section ***/
+
+.portfolio-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+/*** footer ***/
+
+footer {
+    font-family: var(--body-family);
+    text-align: center;
+    margin: auto 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: var(--shadow);
+    background-color: var(--bg-grey);
+    background: url(../img/textured-paper-1920x1080.png);
+}
+
+/*** media queries ***/
+
+/** wide display rules - min-width 1280px **/
+
+@media (min-width: 1280px) {
+    /** hero section **/
+    .hero-box {
+        align-items: center;
+    }
+    .hero-body-sm {
+        font-size: 1.8rem;
+        line-height: 2rem;
+        font-style: bold;
+        text-align: center;
+        max-width: 800px;
+    }
+    /** social icons section **/
+    .social-icons img {
+        max-width: 200px;
+    }
+}
+
+/** max-width  1350px **/
+
+@media (max-width: 1350px) {
+    .port-img {
+        border-radius: 0;
+    }
+}
+
+/** max-width 1080px **/
+
+@media (max-width: 1080px) {
+    .port-head {
+        font-size: 1.2rem !important;
+    }
+}
+
+/** max-width 920px **/
+
+@media (max-width: 920px) {
+    .font-header {
+        font-family: var(--header-family);
+        color: var(--header-color);
+        font-size: 1.6rem;
+        text-decoration: none;
+        text-align: center;
+    }
+    /* Navigation */
+    .top-nav ul {
+        grid-gap: 30px;
+        grid-template-columns: 1fr;
+    }
+    /* Hero section */
+    .hero-section {
+        grid-template-areas:
+          'hero-box hero-box'
+    }
+    .hero-box {
+        align-items: center;
+    }
+    .hero-header {
+        font-size: 2.6rem;
+        line-height: 2.6rem;
+        text-align: center;
+    }
+    .hero-body {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+    }
+    .hero-body-sm {
+        font-size: 1.4rem;
+        font-style: bold;
+        text-align: center;
+    }
+    /* training section */
+    .training-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+    /* projects-section */
+    .projects-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+    /* portfolio-section */
+    /* card components */
+    .card-head {
+        font-size: 1.4rem;
+    }
+    .card-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0;
+    }
+    .card-body {
+        font-size: 1rem;
+    }
+}
+
+/** max-width 740px **/
+
+@media (max-width: 740px) {
+    .card-head {
+        font-size: 1.2rem;
+    }
+    .portfolio-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/** max-width 670px **/
+
+@media (max-width: 670px) {
+    .training-section {
+        grid-template-columns: 1fr;
+    }
+    .projects-section {
+        grid-template-columns: 1fr;
+    }
+    .card-img {
+        border-radius: 7px;
+    }
+}
+
+/** max-width 500px **/
+
+@media (max-width: 500px) {
+    .hero-section {
+        grid-template-areas:
+          'hero-box';
+    }
+    /* social-icons section */
+    .social-icons ul {
+        grid-gap: 10px;
+        grid-template-columns: 1fr;
+    }
+    .social-icons img {
+        max-width: 100px;
+    }
+    /* training section */
+    .training-section {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+    /* projects section */
+    .projects-section {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+    /* portfolio section */
+    .portfolio-section {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+    /* card components */
+    .card-head {
+        font-size: 1.2rem;
+    }
+    .card-body {
+        font-size: 1rem;
+    }
+    .card-img {
+        border-radius: 0px;
+    }
+    /* footer */
+    footer {
+        font-size: 1rem;
+    }
+}
